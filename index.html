@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+width:100vw;
+height:800px;
+}
+        form {
+            width: 100%;
+            height: 100%;
+            background-image: url("./images/1.jpg");
+            position: relative;
+         background-size: cover;
+        }
+p{
+color:white;
+font-weight:bold;
+}
+input{
+border:3px solid orange;
+border-top-left-radius:10px;
+border-bottom-left-radius:10px;
+
+}
+h2{
+color: orange;
+text-align: center;
+text-shadow: white 1px 1px 0px;
+text-shadow: white -1px -1px 0px;
+text-shadow: white -1px 1px 0px;
+text-shadow: white 1px -1px 0px;
+
+}
+
+        #sal {
+            width: 50%;
+        }
+
+        #start:invalid+#end:invalid+#btn {
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function mult() {
+            let userInput = document.forms["ide"].elements["digit"].value;
+            alert(userInput ** 2);
+        };
+
+        function salary() {
+            let userSale = document.forms["ide"].elements["sal"].value;
+            let youSalary = (userSale * 0.1) + 250;
+            alert(`Твой доход составляет ${youSalary} $`);
+        };
+        function planet() {
+            let answer = prompt("На какой планете ты проживаешь?");
+            if (answer == "Земля" || answer == "земля") {
+                alert("«Привет,землянин!»");
+            } else {
+                alert("«Привет,инопланетянин!»");
+            }
+        }
+        function water() {
+            let voda = document.forms["ide"].elements["danger"].value;
+            minVoda = 10;
+            count = 0;
+            while (voda >= minVoda) {
+                voda = voda - (voda * 0.1);
+                count++;
+            }
+            alert(`C таким объемом воды можно прожить ${count} дней`);
+        }
+        function min_max() {
+            let first = +prompt("Введи первое число", 0);
+            let second = +prompt("Введи второе число", 0);
+            if (first > second) {
+                alert(`${first} больше ${second}`);
+            }
+            if (first < second) {
+                alert(`${second} больше ${first}`);
+            };
+            if (first == second) {
+                alert("Числа равны");
+            }
+        }
+        function odd() {
+            let x = confirm("OK-вывести четные числа/Отмена-вывести не четные");
+            let up = document.forms["ide"].elements["start"].value;
+            let down = document.forms["ide"].elements["end"].value;
+            let mass = [];
+            if (up == null && down == null) {
+                mass("Ты ничего не ввел(а)");
+            }
+            if (x) {
+                for (let i = 0; up <= down;) {
+                    if (up % 2 == 0) {
+                        mass[i] = up;
+                        up++;
+                        i++;
+                    } else {
+                        up++;
+                    }
+                }
+            } if (!x) {
+                for (let i = 0; up <= down;) {
+                    if (up % 2 != 0) {
+                        mass[i] = up;
+                        up++;
+                        i++;
+                    } else {
+                        up++;
+                    }
+                }
+            }
+
+            alert(mass);
+        }
+    </script>
+
+
+    <!-- Запросите у пользователя число, возведите это число во 2-ю степень и
+    выведите на экран.
+     -->
+        <div>
+    <form id="ide">
+        <h2>Task1</h2>
+        <p>Введенное число будет возведено во 2-ю степень </p>
+        <input type="text" id="digit" placeholder="Введи сюда число">
+        <button onclick=mult();>Расчетать</button>
+
+        <!-- Зарплата работника составляет $250 + 10% от продаж. Запросите общую сумму
+        продаж за месяц и посчитайте зарплату -->
+        <h2>Task2</h2>
+        <p>Твоя зарплата = $250 + 10% от продаж. На какую сумму ты продал(а)? </p>
+        <input type="text" id="sal" placeholder="Введи сюда сумму продаж">
+        <button onclick=salary();>Расчетать ЗП</button>
+        <!-- 
+        (используйте условные операторы) Запросить у пользователя название
+        планеты. Если пользователь ввел «Земля» или «земля», то вывести «Привет,
+        землянин!», в остальных случаях вывести «Привет, инопланетянин!». -->
+
+        <h2>Task3</h2>
+        <p>Ты с какой планеты? </p>
+        <button onclick=planet();>Нажми меня</button>
+
+        <!-- (используйте циклы) Из-за утечки из бака охлаждения ежедневно вытекает 10%
+        налитой воды. При объеме воды менее 10 литров возникает аварийная
+        ситуация. Составьте программу, которая запрашивает у пользователя
+        первоначальный объем воды и рассчитывает, на сколько дней работы этого
+        хватит. -->
+
+        <h2>Task4</h2>
+        <p>Сколько воды в баке? </p>
+        <input type="=text" id="danger" placeholder="Сколько воды в баке?">
+        <button onclick=water();>Расчетать дни до время "Ч"</button>
+        <!-- 
+        Написать функцию, которая принимает 2 числа и возвращает меньшее из них. -->
+
+        <h2>Task5</h2>
+        <p>Предстоит ввести 2 числа</p>
+        <button onclick=min_max();>BIG & small</button>
+
+        <!-- Написать функцию, которая выводит все четные или нечетные числа, в
+указанном пользователем диапазоне. Какие числа выводить, определяется
+третьим параметром типа bool (true – четные, false – нечетные). -->
+
+        <h2>Task6</h2>
+        <p>Выведем четные или не четные числа в указанном тобой диапазоне</p>
+        <input type="=text" class="place" id="start" pattern=".{1,}" placeholder="Укажи начало дипазона" required>
+        <input type="=text" class="place" id="end" placeholder="Укажи конец дипазона" pattern=".{1,}" required>
+        <button id="btn" onclick=odd();>Вывести числа</button>
+            </form></div>
+</body>
+
+</html>
