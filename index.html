@@ -13,7 +13,7 @@
             min-width: 400px;
             position: relative;
             margin: 0 auto;
-            
+
         }
 
         form {
@@ -22,6 +22,7 @@
             background-image: url("./images/1.jpg");
             position: relative;
             background-size: cover;
+            padding: 10px;
         }
 
         p {
@@ -90,10 +91,10 @@
             let first = +prompt("Введи первое число", 0);
             let second = +prompt("Введи второе число", 0);
             if (first > second) {
-                alert(`${first} больше ${second}`);
+                alert(`${first} больше`);
             }
             if (first < second) {
-                alert(`${second} больше ${first}`);
+                alert(`${second} больше`);
             };
             if (first == second) {
                 alert("Числа равны");
@@ -166,7 +167,7 @@
         хватит. -->
 
             <h2>Task4</h2>
-            <p>Сколько воды в баке? </p>
+            <p>Сколько воды в баке? При менее 10л будет опасность, а ежедневно вытекает 10%</p>
             <input type="=text" id="danger" placeholder="Сколько воды в баке?">
             <button onclick=water();>Расчетать дни до время "Ч"</button>
             <!-- 
